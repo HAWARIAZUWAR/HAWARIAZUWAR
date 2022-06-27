@@ -1,0 +1,209 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.SystemColor;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.awt.Font;
+
+public class WelcomePage1 extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6738457851383035803L;
+	private JPanel contentPane;
+	private JFrame frmWelcomeToAnime;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					WelcomePage1 window = new WelcomePage1();
+					window.frmWelcomeToAnime.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public WelcomePage1() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		frmWelcomeToAnime = new JFrame();
+		frmWelcomeToAnime.setTitle("WELCOME TO ANIME THEME PARK");
+		frmWelcomeToAnime.getContentPane().setBackground(SystemColor.activeCaption);
+		frmWelcomeToAnime.setBounds(100, 100, 717, 546);
+		frmWelcomeToAnime.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmWelcomeToAnime.getContentPane().setLayout(null);
+	
+		JLabel lblNewLabel = new JLabel("WELCOME TO ANIME THEME PARK");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblNewLabel.setBounds(111, 0, 495, 46);
+		frmWelcomeToAnime.getContentPane().add(lblNewLabel);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(199, 21, 133));
+		panel.setBounds(0, 354, 701, 153);
+		frmWelcomeToAnime.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel Theme = new JLabel("");
+		ImageIcon image = new ImageIcon(this.getClass().getResource("/Funfair.jpg")); //add image for theme funfair
+		Theme.setIcon(image);
+		Theme.setBounds(10, 11, 154, 101);
+		panel.add(Theme);
+		
+		JLabel Theme1 = new JLabel("");
+		ImageIcon image1 = new ImageIcon(this.getClass().getResource("/Roller-coaster.jpg")); //add image for theme roller-coaster
+		Theme1.setIcon(image1);
+		Theme1.setBounds(174, 11, 167, 101);
+		panel.add(Theme1);
+		
+		JLabel Theme2 = new JLabel("");
+		ImageIcon image2 = new ImageIcon(this.getClass().getResource("/Skyscraper ride.jpg")); //add image for theme Skyscraper ride
+		Theme2.setIcon(image2);
+		Theme2.setBounds(351, 11, 163, 101);
+		panel.add(Theme2);
+		
+		JLabel Theme3 = new JLabel("");
+		ImageIcon image3 = new ImageIcon(this.getClass().getResource("/Spining ride.jpg")); //add image for theme Spinning ride
+		Theme3.setIcon(image3);
+		Theme3.setBounds(524, 11, 154, 101);
+		panel.add(Theme3);
+		
+		JLabel lblNewLabel_1 = new JLabel("Funfair");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_1.setBounds(49, 123, 85, 14);
+		panel.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Roller-coaster");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_2.setBounds(205, 115, 118, 31);
+		panel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Skyscraper ride");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_3.setBounds(373, 115, 163, 31);
+		panel.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("Spining ride");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_4.setBounds(546, 115, 132, 31);
+		panel.add(lblNewLabel_4);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(0, 0, 128));
+		panel_1.setBounds(0, 53, 701, 302);
+		frmWelcomeToAnime.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel Theme6 = new JLabel("");
+		ImageIcon image6 = new ImageIcon(this.getClass().getResource("/Naruto Brick History.jpg")); //add image for theme Naruto Brick History
+		Theme6.setIcon(image6);
+		Theme6.setBounds(0, 182, 307, 120);
+		panel_1.add(Theme6);
+		
+		JLabel Theme4= new JLabel("");
+		ImageIcon image4 = new ImageIcon(this.getClass().getResource("/Attack on Titan theater.jpg")); //add image for theme Attack on titan
+		Theme4.setIcon(image4);
+		Theme4.setBounds(0, 5, 282, 107);
+		panel_1.add(Theme4);
+		
+		JLabel Theme5 = new JLabel("");
+		ImageIcon image5 = new ImageIcon(this.getClass().getResource("/DragonBall museum.jpg")); //add image for theme DragonBall museum
+		Theme5.setIcon(image5);
+		Theme5.setBounds(451, 0, 250, 112);
+		panel_1.add(Theme5);
+		
+		JLabel Theme7 = new JLabel("");
+		ImageIcon image7 = new ImageIcon(this.getClass().getResource("/One piece.jpg")); //add image for theme One piece gallery
+		Theme7.setIcon(image7);
+		Theme7.setBounds(451, 182, 250, 120);
+		panel_1.add(Theme7);
+		
+		JLabel lblNewLabel_5 = new JLabel("Attack on Titan theater");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_5.setForeground(new Color(255, 69, 0));
+		lblNewLabel_5.setBounds(61, 120, 199, 19);
+		panel_1.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("Naruto Brick History");
+		lblNewLabel_6.setForeground(new Color(255, 0, 0));
+		lblNewLabel_6.setBackground(new Color(255, 255, 255));
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_6.setBounds(61, 150, 193, 21);
+		panel_1.add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_7 = new JLabel("DragonBall museum");
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_7.setForeground(new Color(255, 0, 0));
+		lblNewLabel_7.setBounds(505, 111, 165, 28);
+		panel_1.add(lblNewLabel_7);
+		
+		JLabel lblNewLabel_8 = new JLabel("One piece gallery");
+		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_8.setForeground(new Color(255, 0, 0));
+		lblNewLabel_8.setBounds(505, 150, 155, 21);
+		panel_1.add(lblNewLabel_8);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(0, 0, 128));
+		panel_2.setBounds(297, 182, 144, 109);
+		panel_1.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JButton btnExit = new JButton("EXIT");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				{
+					JButton btn = new JButton("Exit");
+					if (JOptionPane.showConfirmDialog(btn, "Are you sure want to exit?", "Anime Theme Park",
+							JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION) {
+							System.exit(0); }
+				}
+			}
+		});
+		btnExit.setBounds(25, 75, 89, 23);
+		panel_2.add(btnExit);
+		btnExit.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnExit.setBackground(new Color(0, 128, 128));
+		btnExit.setForeground(new Color(255, 20, 147));
+		
+		JButton btnNext = new JButton("NEXT");
+		btnNext.setForeground(Color.BLUE);
+		btnNext.setBackground(Color.ORANGE);
+		btnNext.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Information info = new Information();   //Connect WelcomePage1 Frame
+				Information.main(null);
+				dispose(); 
+			}
+		});
+		btnNext.setBounds(25, 22, 89, 23);
+		panel_2.add(btnNext);
+	
+	
+	}
+}
