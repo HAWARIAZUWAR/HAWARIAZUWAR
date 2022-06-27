@@ -1,0 +1,201 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class MainFrame1 extends JFrame {
+
+
+	private JPanel contentPane;
+	private JTextField textTOTAL;
+	private JTextField textRM;
+	
+	//static declare for void main and main frame constructor 
+		static String name;
+		static String icpass;
+		static String age;
+		static String ttotal;
+		static String citizen;
+		static String totalAdult;
+		static String qtyAdultStandard;
+		static String qtyAdultFastlane;
+		static String totalAdultStandard;
+		static String membership;
+		static String totalAdultFastlane;
+		static String qtyKidsStandard;
+		static String qtyKidsFastlane;
+		static String totalKidsStandard;
+		static String totalKidsFastlane;
+		
+		DecimalFormat df = new DecimalFormat("#0.00");
+	/**
+	 * Launch the application.
+	 */
+		public static void main(String[] args) {
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						MainFrame1 frame = new MainFrame1(name,icpass,age,ttotal,citizen, membership,qtyAdultStandard,qtyAdultFastlane, 
+								qtyAdultStandard,qtyAdultFastlane,qtyKidsStandard,qtyKidsFastlane,qtyKidsStandard,qtyKidsFastlane);
+						frame.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+		}
+			
+		// Create the frame.
+		 		
+		//receive data from entrance ticket frame
+		
+		public MainFrame1(String name ,String icpass ,String age ,String ttotal ,String citizen ,String membership,String quantityAdultStandard,String quantityAdultFastlane,String AdultStandardTotal,String AdultFastlaneTotal,String quantityKidsStandard,String quantitykidsFastlane,String kidsStandardTotal,String kidsFastlaneTotal) {
+		
+			setTitle("PAYMENT PAGE");
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			setBounds(100, 100, 450, 300);
+			contentPane = new JPanel();
+			contentPane.setBackground(new Color(173, 216, 230));
+			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+			setContentPane(contentPane);
+			contentPane.setLayout(null);
+			
+			JRadioButton rdbtnCreditCard = new JRadioButton("CREDIT CARD");
+			rdbtnCreditCard.setBounds(17, 73, 109, 23);
+			contentPane.add(rdbtnCreditCard);
+			rdbtnCreditCard.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) 
+				{
+					if(rdbtnCreditCard.isSelected())
+					{
+						double Total = Double.parseDouble(ttotal);
+						textRM.setText("RM" + df.format(Total));
+					}
+				}
+			});
+		
+			JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("BANK PAYMENT");
+			rdbtnNewRadioButton_1.setBounds(154, 73, 109, 23);
+			contentPane.add(rdbtnNewRadioButton_1);
+			rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) 
+				{
+					if(rdbtnNewRadioButton_1.isSelected())
+					{
+						double Total = Double.parseDouble(ttotal);
+						textRM.setText("RM" + df.format(Total));
+					}
+				}
+			});
+			
+			
+			JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("E-WALLET");
+			rdbtnNewRadioButton_2.setBounds(297, 73, 109, 23);
+			contentPane.add(rdbtnNewRadioButton_2);
+			rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_2.isSelected())
+				{
+					double Total = Double.parseDouble(ttotal);
+					textRM.setText("RM" + df.format(Total));
+				}
+			}
+		});
+			
+		{
+				
+		JLabel lblPay = new JLabel("PAYMENT PAGE");
+		lblPay.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblPay.setBounds(154, 23, 146, 14);
+		contentPane.add(lblPay);
+			
+		JLabel lblTotal = new JLabel("TOTAL");
+		lblTotal.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTotal.setBounds(61, 126, 65, 14);
+		contentPane.add(lblTotal);
+		
+		JLabel lblRM = new JLabel("RM");
+		lblRM.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblRM.setBounds(70, 164, 78, 14);
+		contentPane.add(lblRM);
+		
+		textTOTAL = new JTextField();
+		textTOTAL.setBounds(137, 157, 146, 35);
+		contentPane.add(textTOTAL);
+		textTOTAL.setColumns(10);
+		
+		textRM = new JTextField();
+		textRM.setColumns(10);
+		textRM.setBounds(137, 118, 146, 35);
+		contentPane.add(textRM);
+		}
+		
+		JButton btnPay = new JButton("PAY");
+		btnPay.setBorder(null);
+		btnPay.setBounds(166, 215, 89, 23);
+		contentPane.add(btnPay);
+		
+		JButton btnNewButton = new JButton("BACK");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				EntranceTicket info = new EntranceTicket(); //Connect WelcomePage1 Frame
+				EntranceTicket.main(null);
+				dispose(); 
+			}
+		});
+		btnNewButton.setBounds(335, 227, 89, 23);
+		contentPane.add(btnNewButton);
+		btnPay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				double Total = Double.parseDouble(ttotal);
+				double Totalpayment = 0.0;
+				String totalmoney = textTOTAL.getText();
+				double tm = Double.parseDouble(totalmoney);
+				
+				
+	
+				if(tm < Total)
+				{
+					JOptionPane.showMessageDialog(null,"Your money is not enough");
+				}
+				else if(tm > Total)
+				{
+					Totalpayment = tm - Total;
+					JOptionPane.showMessageDialog(null,"Thank you for purchase!!!" + "\nThis is your reciept");
+					String ttotalpayment = Double.toString(Totalpayment); 
+					String totalbalance = Double.toString(Totalpayment);
+					Receipt1 rp = new Receipt1(name,icpass, age,ttotal,citizen, membership,quantitykidsFastlane,quantityKidsStandard, quantityAdultStandard,quantityAdultFastlane ,AdultStandardTotal,AdultFastlaneTotal,kidsStandardTotal,kidsFastlaneTotal, ttotalpayment,totalbalance );
+					rp.setVisible(true);
+					dispose();
+				}
+				else if(tm == Total) //
+				{
+					Totalpayment = tm - Total;
+					JOptionPane.showMessageDialog(null,"Thank you for purchase!!!" + "\nThis is your reciept");
+					String ttotalpayment = Double.toString(Totalpayment);
+					String totalbalance = Double.toString(Totalpayment);
+					Receipt1 rp = new Receipt1(name,icpass, age,ttotal,citizen, membership,quantitykidsFastlane,quantityKidsStandard, quantityAdultStandard,quantityAdultFastlane ,AdultStandardTotal,AdultFastlaneTotal,kidsStandardTotal,kidsFastlaneTotal, ttotalpayment,totalbalance );
+					rp.setVisible(true);
+					dispose();
+				}
+		
+			}
+		});				
+	}
+}
