@@ -1,0 +1,348 @@
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextField;
+import javax.swing.JSeparator;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.JTextPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
+import java.awt.Color;
+import javax.swing.JSpinner;
+
+public class EntranceTicket extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textName;
+	private JTextField texticPassport;
+	private JTextField textAge;
+	private JLabel lblCitizens;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					EntranceTicket frame = new EntranceTicket();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public EntranceTicket() {
+		setTitle("EntranceTicket");
+		setFont(new Font("Dialog", Font.BOLD, 30));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 770, 499);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(233, 150, 122));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 222, 173));
+		panel.setBounds(10, 11, 734, 438);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblEntranceTicket = new JLabel("ENTRANCE TICKET ANIME THEME PARK");
+		lblEntranceTicket.setBounds(121, 11, 495, 46);
+		panel.add(lblEntranceTicket);
+		lblEntranceTicket.setFont(new Font("Tahoma", Font.BOLD, 24));
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.setBounds(639, 406, 85, 21);
+		panel.add(btnExit);
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JButton JButton = new JButton("Exit");
+				if (JOptionPane.showConfirmDialog(JButton, "Confirm if you want to Exit? This process will not save", "Ticketing System",
+						JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION) {
+						System.exit(0);
+				}				     
+			}
+		});
+		btnExit.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JLabel lblName = new JLabel("NAME");
+		lblName.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblName.setBounds(47, 87, 65, 21);
+		panel.add(lblName);
+		
+		textName = new JTextField();
+		textName.setBounds(98, 88, 219, 20);
+		panel.add(textName);
+		textName.setColumns(10);
+		
+		JLabel lblicpassport = new JLabel("IC/PASSPORT");
+		lblicpassport.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblicpassport.setBounds(45, 134, 78, 14);
+		panel.add(lblicpassport);
+		
+		texticPassport = new JTextField();
+		texticPassport.setBounds(130, 131, 187, 20);
+		panel.add(texticPassport);
+		texticPassport.setColumns(10);
+		
+		JLabel lblAge = new JLabel("AGE");
+		lblAge.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblAge.setBounds(47, 172, 46, 14);
+		panel.add(lblAge);
+		
+		textAge = new JTextField();
+		textAge.setBounds(98, 170, 86, 20);
+		panel.add(textAge);
+		textAge.setColumns(10);
+		
+		lblCitizens = new JLabel("CITIZENS");
+		lblCitizens.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCitizens.setBounds(373, 133, 78, 14);
+		panel.add(lblCitizens);
+		
+		JCheckBox chckbxMalaysia = new JCheckBox("MALAYSIA");
+		chckbxMalaysia.setBounds(457, 131, 151, 23);
+		panel.add(chckbxMalaysia);
+		
+		JCheckBox chckbxForeigner = new JCheckBox("FOREIGNER");
+		chckbxForeigner.setBounds(456, 163, 151, 23);
+		panel.add(chckbxForeigner);
+		
+		JLabel lblAdultfastLane = new JLabel("ADULT (fast lane)");
+		lblAdultfastLane.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblAdultfastLane.setBounds(47, 315, 109, 21);
+		panel.add(lblAdultfastLane);
+		
+		JLabel lblAdultstandard = new JLabel("ADULT (standard)");
+		lblAdultstandard.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblAdultstandard.setBounds(47, 256, 109, 21);
+		panel.add(lblAdultstandard);
+		
+		JSpinner spinner = new JSpinner();
+		spinner.setBounds(166, 257, 30, 20);
+		panel.add(spinner);
+		
+		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setBounds(166, 316, 30, 20);
+		panel.add(spinner_1);
+		
+		JLabel lblKidsbelowstandard = new JLabel("KIDS-below13(standard)");
+		lblKidsbelowstandard.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblKidsbelowstandard.setBounds(234, 256, 151, 21);
+		panel.add(lblKidsbelowstandard);
+		
+		JLabel lblKidsbelowfastLane = new JLabel("KIDS-below13(fast lane)");
+		lblKidsbelowfastLane.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblKidsbelowfastLane.setBounds(234, 319, 151, 21);
+		panel.add(lblKidsbelowfastLane);
+		
+		JSpinner spinner_2 = new JSpinner();
+		spinner_2.setBounds(389, 257, 30, 20);
+		panel.add(spinner_2);
+		
+		JSpinner spinner_3 = new JSpinner();
+		spinner_3.setBounds(389, 316, 30, 20);
+		panel.add(spinner_3);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(401, 87, 236, 21);
+		panel.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel_4 = new JLabel("IF MALAYSIA GET 15% DISCOUNT");
+		lblNewLabel_4.setBounds(10, 0, 205, 14);
+		panel_1.add(lblNewLabel_4);
+		
+		JLabel lblMembership = new JLabel("MEMBERSHIP :");
+		lblMembership.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblMembership.setBounds(459, 272, 95, 21);
+		panel.add(lblMembership);
+		
+		JRadioButton rdbtnMembership = new JRadioButton("MEMBERSHIP");
+		rdbtnMembership.setBounds(560, 272, 109, 23);
+		panel.add(rdbtnMembership);
+		
+		JRadioButton rdbtnNotMembership = new JRadioButton("NOT MEMBERSHIP");
+		rdbtnNotMembership.setBounds(560, 315, 123, 23);
+		panel.add(rdbtnNotMembership);
+		
+		JButton btnClear = new JButton("Clear");
+		btnClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				textName.setText(null);
+				texticPassport.setText(null);
+				textAge.setText(null);			
+				
+			}
+		});
+		btnClear.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnClear.setBounds(455, 340, 85, 21);
+		panel.add(btnClear);
+		
+		JButton btnProceed = new JButton("PROCEED");
+		btnProceed.setBounds(475, 395, 151, 32);
+		panel.add(btnProceed);
+		btnProceed.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				// declaration
+				int qtyAdultStandard = 0;
+		        int qtyAdultFastlane = 0;
+				int qtyKidsStandard = 0;
+				int qtyKidsFastlane = 0;
+		        double total = 0.0;
+		        double totalAdultStandard = 0.0;
+		        double totalAdultFastlane = 0.0;
+		        double totalKidsStandard = 0.0;
+		        double totalKidsFastlane = 0.0;
+		        double valueAdultStandard = 0.0;
+		        double valueAdultFastlane = 0.0;
+		        double valueKidsStandard = 0.0;
+		        double valueKidsFastlane = 0.0;
+		        double discount = 0.10;
+		        double totaldiscount = 0.0;
+		        String citizen = "";
+		        String membership = "";
+				
+					
+		        if(chckbxMalaysia.isSelected())//if check box malaysia is selected
+					{
+						// declaration 
+						// ticket price
+						valueAdultStandard= 45.00;
+						valueAdultFastlane = 55.00; 
+						valueKidsStandard = 35.00;
+						valueKidsFastlane = 45.00;
+						
+						qtyAdultStandard = Integer.parseInt(spinner.getValue().toString());
+						totalAdultStandard = valueAdultStandard * qtyAdultStandard;
+						
+						qtyAdultFastlane = Integer.parseInt(spinner_1.getValue().toString());
+						totalAdultFastlane = valueAdultFastlane * qtyAdultFastlane;
+		             
+						qtyKidsStandard = Integer.parseInt(spinner_2.getValue().toString());
+						totalKidsStandard = valueKidsStandard * qtyKidsStandard;
+		             	
+						qtyKidsFastlane = Integer.parseInt(spinner_3.getValue().toString());
+						totalKidsFastlane = valueKidsFastlane * qtyKidsFastlane;
+		             	
+		             
+						total = totalAdultStandard + totalAdultFastlane + totalKidsStandard + totalKidsFastlane;
+					
+					
+		        	if(rdbtnMembership.isSelected()) // if radio button membership is selected get 15% discount for malaysia
+						
+		        	{
+		        		totaldiscount = total * discount;
+		             total = total - totaldiscount;	
+		             membership = "Anime Theme Park Member";
+		        	
+		        	}
+		        	if(rdbtnNotMembership.isSelected()) // if check box not membership is selected don't have any discount 
+		        		
+		        	{
+		             membership = "Not Member";
+		        	}
+		        	
+		       
+		        	citizen = "Malaysia";
+		        	
+					}
+		             
+		        	 if(chckbxForeigner.isSelected()) // if check box foreigner is selected
+				    {
+		        		//declaration
+				        //ticket price
+		        		
+		        		valueAdultStandard= 45.00;
+						valueAdultFastlane = 55.00; 
+						valueKidsStandard = 35.00;
+						valueKidsFastlane = 45.00;
+						
+						qtyAdultStandard = Integer.parseInt(spinner.getValue().toString());
+						totalAdultStandard = valueAdultStandard * qtyAdultStandard;
+						
+						qtyAdultFastlane = Integer.parseInt(spinner_1.getValue().toString());
+						totalAdultFastlane = valueAdultFastlane * qtyAdultFastlane;
+		             
+						qtyKidsStandard = Integer.parseInt(spinner_2.getValue().toString());
+						totalKidsStandard = valueKidsStandard * qtyKidsStandard;
+		             	
+						qtyKidsFastlane = Integer.parseInt(spinner_3.getValue().toString());
+						totalKidsFastlane = valueKidsFastlane * qtyKidsFastlane;
+						
+						total =+  totalAdultStandard + totalAdultFastlane + totalKidsStandard + totalKidsFastlane;
+		             	
+						if(rdbtnMembership.isSelected()) // if radio button membership is selected get 10% discount for Malaysia
+							
+			        	{
+			        		totaldiscount = total * discount;
+			             total = total - totaldiscount;	
+			             membership = "Anime Theme Park Member";
+			        	
+			        	}
+			        	if(rdbtnNotMembership.isSelected()) // if check box not membership is selected don't have any discount 
+			        		
+			        	{
+			             membership = "Not Member";
+			        	}
+			        	
+			       
+			        	citizen = "Foreigner";
+			        	
+				    	}
+			        	
+			        	 // convert string to double
+				        String quantityAdultStandard = Integer.toString(qtyAdultStandard); 
+				        String quantityAdultFastlane = Integer.toString(qtyAdultFastlane); 
+						String AdultStandardTotal = Double.toString(totalAdultStandard);
+						String AdultFastlaneTotal = Double.toString(totalAdultFastlane);
+						String quantityKidsStandard = Integer.toString(qtyKidsStandard);
+						String quantitykidsFastlane = Integer.toString(qtyKidsFastlane);
+						String kidsStandardTotal = Double.toString(totalKidsStandard);
+						String kidsFastlaneTotal = Double.toString(totalKidsFastlane);
+				        String ttotal = Double.toString(total);
+				        
+				        // get input from text field
+						String name = textName.getText();
+						String icpass = texticPassport.getText();
+						String age = textAge.getText();	
+						
+						// connect and pass data to main frame constructor
+						MainFrame1 mn1 = new MainFrame1 (name,icpass,age,ttotal,citizen, membership,quantityAdultStandard,quantityAdultFastlane, AdultStandardTotal,AdultFastlaneTotal,quantityKidsStandard,quantitykidsFastlane,kidsStandardTotal,kidsFastlaneTotal);
+			        	mn1.setVisible(true);
+			        	
+			        	//close current frame name
+			        	dispose();
+			        	
+						}
+					});
+			        	
+			        	
+			    			
+			   		        	
+		}	
+	}
